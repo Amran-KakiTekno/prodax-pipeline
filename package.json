@@ -1,0 +1,31 @@
+{
+  "name": "prodax-pipeline",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Pipeline Sync Lab - a clean-room, fully client-side demo of initial and incremental ingestion between two data stores, with revision checkpoints and document linkage.",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "build": "npm run typecheck && vite build",
+    "pretest:e2e": "vite build",
+    "test:e2e": "playwright test",
+    "preview": "vite preview --port 4101 --strictPort --host 127.0.0.1",
+    "verify": "npm run typecheck && npm run test && npm run build && npm run test:e2e && node scripts/verify-build.mjs"
+  },
+  "dependencies": {
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
+    "@playwright/test": "^1.64.1",
+    "@types/node": "^26.6.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.5",
+    "vitest": "^5.0.5"
+  }
+}
